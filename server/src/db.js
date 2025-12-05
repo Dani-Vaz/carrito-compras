@@ -1,16 +1,15 @@
-// server/src/db.js (o la ruta que uses)
+// server/src/db.js
 
 import mysql from "mysql2/promise";
 import dotenv from "dotenv";
 
-// Carga .env solo en desarrollo (en Railway las vars ya vienen del entorno)
+// Carga .env solo en desarrollo
 if (process.env.NODE_ENV !== "production") {
   dotenv.config();
 }
 
-// ⚠ Asegúrate de que DB_NAME coincida con el nombre REAL de tu base
-// por ejemplo "carrito_compras" si así se llama en Railway/XAMPP
-const pool = mysql.createPool({
+// Configuración del pool
+export const pool = mysql.createPool({  // ← Cambiado a export const
   host: process.env.DB_HOST || "127.0.0.1",
   port: Number(process.env.DB_PORT || 3306),
   user: process.env.DB_USER || "root",
@@ -21,7 +20,7 @@ const pool = mysql.createPool({
   queueLimit: 0,
 });
 
-// Función opcional para probar conexión (puedes llamarla al arrancar el server)
+// Función de prueba de conexión
 export async function testConnection() {
   try {
     const conn = await pool.getConnection();
@@ -31,12 +30,10 @@ export async function testConnection() {
   } catch (err) {
     console.error("❌ Error conectando a MySQL:", err.message);
     console.error(
-      "Verifica tus variables de entorno: DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_NAME y que MySQL esté activo."
+      "Verifica tus variables: DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_NAME"
     );
-    // En producción puedes quitar el exit si no quieres que tumbe el proceso
     process.exit(1);
   }
 }
 
-// Export principal del pool para usarlo en el resto de archivos
-export default pool;
+// NO usar export default, usar export const
