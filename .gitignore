@@ -1,0 +1,18 @@
+# Archivos de entorno
+.env
+server/.env
+
+# Dependencias
+node_modules/
+server/node_modules/
+
+# Logs
+*.log
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/

@@ -1,0 +1,31 @@
+[
+    {
+      "id": 1,
+      "nombre": "Camiseta TypeScript",
+      "descripcion": "Camiseta azul con logo de TypeScript",
+      "precio": 250,
+      "imagen": "img/camiseta-ts.png"
+    },
+    {
+      "id": 2,
+      "nombre": "Taza Dev",
+      "descripcion": "Taza blanca con diseño para programadores",
+      "precio": 150,
+      "imagen": "img/taza-dev.png"
+    },
+    {
+      "id": 3,
+      "nombre": "Sticker Pack",
+      "descripcion": "Stickers de tecnologías web y logos",
+      "precio": 100,
+      "imagen": "img/stickers.png"
+    },
+    {
+      "id": 4,
+      "nombre": "Mouse Pad JS",
+      "descripcion": "Mouse pad con diseño JavaScript",
+      "precio": 180,
+      "imagen": "img/mousepad-js.png"
+    }
+  ]
+  
